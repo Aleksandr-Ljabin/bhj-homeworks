@@ -3,6 +3,8 @@ const output = function (){
 	timer.textContent -= 1;
 	if (timer.textContent == 0){
 		alert ("Вы победили в конкурсе!")
+		clearInterval(timerId);
 	}
+	
 }	
-setInterval(output, 1000);	
+let timerId = setInterval(output, 1000);	
