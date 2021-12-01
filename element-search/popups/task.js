@@ -1,3 +1,28 @@
+"use strict"
+let elementsModal = document.getElementsByClassName('modal');
+let close = document.getElementsByClassName("modal__close modal__close_times")
+elementsModal[0].className = "modal modal_active";
+const modalClose = function () {
+	console.log(this.parentElement)
+}
+
+close.onclick = modalClose;
+
+const modalShowOpen = function(){
+	if(elementsModal[0].className == "modal modal_active"){
+		elementsModal[0].className = "modal";
+		elementsModal[1].className = "modal modal_active";
+	}
+	
+}
+
+elementsModal[0].getElementsByTagName("a")[0].onclick = modalShowOpen;
+
+
+
+
+
+/*
 let elementsModal = document.getElementsByClassName('modal');
 elementsModal[0].className = "modal modal_active";
 const modalClose = function () {
@@ -19,7 +44,4 @@ const modalShowOpen = function(){
 }
 
 elementsModal[0].getElementsByTagName("a")[0].onclick = modalShowOpen;
-
-
-
-
+*/

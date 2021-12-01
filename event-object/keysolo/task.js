@@ -17,6 +17,16 @@ class Game {
   }
 
   registerEvents() {
+    let keyWord = this.currentSymbol.textContent;
+    document.addEventListener('keypress', function (event){
+      let keyUser = event.key;
+      if(keyWord == keyUser){
+        this.success();
+      } else if(keyWord != keyUser){
+        this.fail();
+
+      }
+    })
     /*
       TODO:
       Написать обработчик события, который откликается
