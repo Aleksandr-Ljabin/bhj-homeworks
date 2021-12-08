@@ -1,16 +1,17 @@
 "use strict"
-let rotator = document.getElementsByClassName("rotator");
-const output = function (){
-	for (let i = 0; i < rotator.length; i++){
-		let item = Array.from(rotator[i].getElementsByClassName("rotator__case"));
-		for(let i = 0; i < item.length; i++){
-			item[i].classList.toggle("rotator__case_active");
-			let q = item[i].nextElementSibling;
-			q.classList.toggle("rotator__case_active");
-		}
-		
+let rotator = Array.from(document.getElementsByClassName("rotator__case"));
+const output = function(){
+	let rotatorActive = rotator.findIndex(item => item.className == "rotator__case rotator__case_active");
+	if(rotatorActive == rotator.length - 1){
+		rotator[rotatorActive].classList.toggle("rotator__case_active");
+		rotator[0].classList.toggle("rotator__case_active");
+	} else{
+		rotator[rotatorActive].classList.toggle("rotator__case_active");
+		rotator[rotatorActive].nextElementSibling.classList.toggle("rotator__case_active");
 	}
 }
+	
+
 
 
 setInterval(output, 1000);	
