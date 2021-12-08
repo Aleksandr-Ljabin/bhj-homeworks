@@ -16,16 +16,12 @@ class Game {
     this.lossElement.textContent = 0;
   }
 
-  registerEvents() {
-    let keyWord = this.currentSymbol.textContent;
-    document.addEventListener('keypress', function (event){
-      let keyUser = event.key;
-      if(keyWord == keyUser){
-        this.success();
-      } else if(keyWord != keyUser){
-        this.fail();
-
-      }
+registerEvents() {
+    
+    document.addEventListener('keypress', (event) => {
+      let keyWord = this.currentSymbol.textContent;
+      if(keyWord.toLowerCase() == event.key.toLowerCase()) return this.success();       
+        return this.fail();      
     })
     /*
       TODO:
@@ -35,6 +31,7 @@ class Game {
       При неправильном вводе символа - this.fail();
      */
   }
+
 
   success() {
     this.currentSymbol.classList.add('symbol_correct');
