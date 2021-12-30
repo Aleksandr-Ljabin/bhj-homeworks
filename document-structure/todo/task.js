@@ -7,10 +7,7 @@ let tasksAdd = document.getElementById("tasks__add");
 form.onsubmit = function(evt){
 	evt.preventDefault();
 	let result = taskInput.value.trim();
-	if(result === ''){
-		form.reset();
-		return false;
-	} else if(result != ''){
+	if(result != ''){
 		let elemAdd = document.createElement('div');
 		elemAdd.className = "task";
 		elemAdd.insertAdjacentHTML("beforeEnd", `<div class="task__title"> ${result} </div> <a href="#" class="task__remove">&times;</a>`);

@@ -17,12 +17,11 @@ for(let i = 0; i < controlInc.length; i++){
 
 let product = document.getElementsByClassName("product"); //карточка товара
 let cartProducts = Array.from(document.getElementsByClassName("cart__products")); //корзина
-let cartProduct = Array.from(document.getElementsByClassName("cart__product")); //товары в корзине
+let cartProduct = document.getElementsByClassName("cart__product"); //товары в корзине
 
 for(let i = 0; i < product.length; i++){
 	product[i].querySelector("div.product__add").onclick = function(){
-		let item = cartProduct.findIndex(item => item.dataset.id == product[i].dataset.id);
-		console.log(item);
+		let item = Array.from(cartProduct).findIndex(item => item.dataset.id == product[i].dataset.id);
 		if(item >= 0){
 			let cartQuantity = Number(cartProduct[item].querySelector("div.cart__product-count").innerText);
 			let addQuantity = Number(product[i].querySelector("div.product__quantity-value").innerText);
@@ -36,7 +35,7 @@ for(let i = 0; i < product.length; i++){
 			
 		}
 	}
-}
+};
 
 
 
